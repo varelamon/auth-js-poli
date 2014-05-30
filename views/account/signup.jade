@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+  form.form-horizontal(id='signup-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    legend Registro
+    .form-group
+      label.col-sm-3.control-label(for='username') Nombre de Usuario
+      .col-sm-7
+        input.form-control(type='username', name='username', id='username', placeholder='Nombre de usuario', autofocus)
+    .form-group
+      label.col-sm-3.control-label(for='email') Email
+      .col-sm-7
+        input.form-control(type='email', name='email', id='email', placeholder='Email')
+    .form-group
+      label.col-sm-3.control-label(for='name') Nombres
+      .col-sm-7
+        input.form-control(type='name', name='name', id='name', placeholder='Nombres', autofocus)
+    .form-group
+      label.col-sm-3.control-label(for='password') Contraseña
+      .col-sm-7
+        input.form-control(type='password', name='password', id='password', placeholder='Contraseña')
+    .form-group
+      label.col-sm-3.control-label(for='confirmPassword') Confirmacion Contraseña
+      .col-sm-7
+        input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirmacion Contraseña')
+
+    legend  Preguntas de Seguridad
+    .form-group
+      label.col-sm-6.control-label #{questions[0].text}
+      .col-sm-4
+        input.form-control(type='hidden', name='question1', id='question1', value="#{questions[0].text}")
+        input.form-control(type='text', name='answer1', id='answer1', placeholder='Respuesta')
+    .form-group
+      label.col-sm-6.control-label #{questions[1].text}
+      .col-sm-4
+        input.form-control(type='hidden', name='question2', id='question2', value="#{questions[1].text}")
+        input.form-control(type='text', name='answer2', id='answer2', placeholder='Respuesta')
+    .form-group
+      label.col-sm-6.control-label #{questions[2].text}
+      .col-sm-4
+        input.form-control(type='hidden', name='question3', id='question3', value="#{questions[2].text}")
+        input.form-control(type='text', name='answer3', id='answer3', placeholder='Respuesta')
+    .form-group
+      .col-sm-offset-3.col-sm-7
+        button.btn.btn-success(type='submit')
+          i.fa.fa-check
+          | Registrarse

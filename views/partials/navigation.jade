@@ -1,0 +1,22 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') Inicio
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        if !user
+          li(class=title=='Iniciar Sesion'?'active':undefined)
+            a(href='/login') Iniciar Sesion
+          li(class=title=='Registrarse'?'active':undefined)
+            a(href='/signup') Registrarse
+        else
+          if user.admin
+            li: a(href='/users') Usuarios
+          li: a(href='/account') Editar mi cuenta
+          li.divider
+          li: a(href='/logout') Cerrar sesion

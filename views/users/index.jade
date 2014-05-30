@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  .authform
+    .page-header
+      .panel.panel-primary
+        .panel-title
+          | Listado de Usuarios
+        .panel-body
+          table.table.table-condensed
+            tr
+              th Nombres
+              th Email
+              th
+            for u in users
+              if !u.admin
+                tr
+                  td
+                    a(href="users/#{u.username}") #{u.name}
+                  td= u.email
+                  td
+                    a(href="users/delete/#{u.id}") Borrar
+

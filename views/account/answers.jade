@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  form.form-horizontal(method='POST', id="verifyform")
+    legend Listado de preguntas #{username}
+    input.form-control(type='hidden', name='username', id='username', value="#{username}")
+    .form-group
+      label.col-sm-6.control-label #{questions[0].text}
+      .col-sm-4
+        input.form-control(type='hidden', name='question1', id='question1', value="#{questions[0].text}")
+        input.form-control(type='text', name='answer1', id='answer1', placeholder='Respuesta')
+    .form-group
+      label.col-sm-6.control-label #{questions[1].text}
+      .col-sm-4
+        input.form-control(type='hidden', name='question2', id='question2', value="#{questions[1].text}")
+        input.form-control(type='text', name='answer2', id='answer2', placeholder='Respuesta')
+    .form-group
+      label.col-sm-6.control-label #{questions[2].text}
+      .col-sm-4
+        input.form-control(type='hidden', name='question3', id='question3', value="#{questions[2].text}")
+        input.form-control(type='text', name='answer3', id='answer3', placeholder='Respuesta')
+    .form-group
+      .col-sm-offset-3.col-sm-7
+        button.btn.btn-success(type='submit', id="verify")
+          i.fa.fa-check
+          | Verificar
+  #result-success.col-sm-offset-3.col-sm-5.alert.alert-success
+    p Sus respuestas fueron satisfactoriamente verificadas
+    p Vas a recibir un correo con instrucciones sobre cómo resetear tu contraseña en unos pocos minutos.
+  #result-error.col-sm-offset-3.col-sm-5.alert.alert-danger
+    p Las siguientes respuestas dadas no concuerdan con las que ingresaste al momento de registrarte.
+    ul
+

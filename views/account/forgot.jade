@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  .col-sm-6.col-sm-offset-2
+    form(method='POST')
+      legend Olvidasate tu contraseña?
+      input(type='hidden', name='_csrf', value=_csrf)
+      .form-group
+        p Te podemos enviar las instrucciones de reseteo por correo electronico.
+        label.control-label(for='email') Email
+        input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true)
+      .form-group
+        button.btn.btn-primary(type='submit')
+          i.fa.fa-key
+          | Resetear contraseña
+  br
+  .col-sm-6.col-sm-offset-2
+    form(method='GET', action='/answers')
+      .form-group
+        p Tambien podemos generate una clave nueva respondiendo las preguntas que especificaste al momento de registrarte
+        label.control-label(for='username') Nombre de usuario
+        input.form-control(type='username', name='username', id='username', placeholder='Nombre de usuario')
+      .form-group
+        button.btn.btn-primary(type='submit')
+          i.fa.fa-key
+          | Generar preguntas
+
