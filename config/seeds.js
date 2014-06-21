@@ -76,4 +76,5 @@ mongoose.connect(uristring, function (err, res) {
 });
 
 
+mongoose.connection.close();
 
